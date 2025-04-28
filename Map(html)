@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Map</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <style>
+        #map {
+            height: 500px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<h2>My First Map!</h2>
+
+<div id="map"></div>
+
+<script>
+    // Initialize the map and set view
+    var map = L.map('map').setView([23.6850, 90.3563], 7); // Bangladesh location
+
+    // Set up the tile layer (the actual map tiles)
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '© OpenStreetMap'
+    }).addTo(map);
+
+    // Add a marker
+    L.marker([23.8103, 90.4125]).addTo(map)
+        .bindPopup('Dhaka City!')
+        .openPopup();
+</script>
+
+</body>
+</html>
